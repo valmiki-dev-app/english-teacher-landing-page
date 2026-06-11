@@ -8,6 +8,7 @@
   --font-heading: var(--font-archivo-black), 'Archivo Black Fallback';
   --font-sans: var(--font-archivo), 'Archivo Fallback';
   --font-hand: var(--font-caveat), 'Caveat Fallback';
+  --font-marker: var(--font-pangolin), 'Pangolin Fallback';
   --font-mono: var(--font-archivo), 'Archivo Fallback';
   --color-neon: var(--neon);
   --color-neon-foreground: var(--neon-foreground);
@@ -60,12 +61,12 @@
 }
 
 :root {
-  /* NYC night — deep inky blue-violet base */
-  --background: oklch(0.16 0.03 275);
+  /* deep inky night — almost black with a cold blue cast */
+  --background: oklch(0.13 0.025 270);
   --foreground: oklch(0.97 0.01 280);
-  --card: oklch(0.21 0.035 278);
+  --card: oklch(0.18 0.03 274);
   --card-foreground: oklch(0.97 0.01 280);
-  --popover: oklch(0.21 0.035 278);
+  --popover: oklch(0.18 0.03 274);
   --popover-foreground: oklch(0.97 0.01 280);
   /* Coral neon — primary accent */
   --primary: oklch(0.7 0.2 25);
@@ -161,6 +162,60 @@
   }
   .font-hand {
     font-family: var(--font-hand);
+  }
+  .font-marker {
+    font-family: var(--font-marker);
+  }
+  /* hand-scrawled marker word — slightly rough, tilted, with a wobbly underline drawn by pen */
+  .scrawl {
+    font-family: var(--font-marker);
+    position: relative;
+    display: inline-block;
+  }
+  /* highlighter swipe behind text — like a marker stroke over a word */
+  .marker-hl {
+    position: relative;
+    display: inline;
+    z-index: 0;
+  }
+  .marker-hl::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: -0.18em;
+    right: -0.18em;
+    top: 8%;
+    bottom: 6%;
+    background: var(--mark, var(--taxi));
+    transform: rotate(-1.6deg) skewX(-6deg);
+    border-radius: 0.2em 0.45em 0.25em 0.5em / 0.6em 0.4em 0.7em 0.35em;
+    opacity: 0.92;
+  }
+  /* circled with a marker — irregular hand-drawn ellipse */
+  .marker-circle {
+    position: relative;
+    display: inline-block;
+  }
+  .marker-circle::after {
+    content: '';
+    position: absolute;
+    inset: -22% -14%;
+    border: 3px solid var(--mark, var(--neon));
+    border-radius: 48% 52% 50% 50% / 56% 48% 52% 44%;
+    transform: rotate(-3deg);
+    pointer-events: none;
+  }
+  /* rough marker underline scribbled under a word */
+  .marker-underline {
+    background-image: linear-gradient(
+      to right,
+      var(--mark, var(--lime)),
+      var(--mark, var(--lime))
+    );
+    background-repeat: no-repeat;
+    background-position: 0 92%;
+    background-size: 100% 0.32em;
+    padding-bottom: 0.05em;
   }
   /* subtle film grain over the dark city */
   .grain::before {

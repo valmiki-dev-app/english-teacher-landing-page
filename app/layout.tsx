@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Archivo, Archivo_Black, Caveat } from 'next/font/google'
+import { Archivo, Archivo_Black, Caveat, Pangolin } from 'next/font/google'
 import './globals.css'
 
 const archivo = Archivo({
@@ -17,6 +17,13 @@ const archivoBlack = Archivo_Black({
 const caveat = Caveat({
   variable: '--font-caveat',
   subsets: ['latin', 'cyrillic'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+})
+const pangolin = Pangolin({
+  variable: '--font-pangolin',
+  subsets: ['latin', 'cyrillic'],
+  weight: '400',
   display: 'swap',
 })
 
@@ -52,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${archivo.variable} ${archivoBlack.variable} ${caveat.variable} bg-background`}
+      className={`${archivo.variable} ${archivoBlack.variable} ${caveat.variable} ${pangolin.variable} bg-background`}
     >
       <body className="font-sans antialiased">
         {children}

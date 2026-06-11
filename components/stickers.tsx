@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
 /**
- * Decorative NYC street-art style stickers. Each is a small inline SVG badge
+ * Decorative street-art style stickers. Each is a small inline SVG badge
  * that wobbles gently on hover. Purely decorative -> aria-hidden.
  */
 
@@ -36,8 +36,21 @@ export function StickerBase({ className, rotate = -6, children }: StickerProps) 
 export function TaxiSticker({ className = '', rotate = -8 }) {
   return (
     <StickerBase rotate={rotate} className={className}>
-      <span className="rounded-md border-2 border-foreground bg-taxi px-3 py-1 font-heading text-sm uppercase tracking-tight text-taxi-foreground shadow-[3px_3px_0_0_var(--foreground)]">
-        NYC Taxi
+      <span className="flex items-center gap-2 rounded-md border-2 border-foreground bg-taxi px-3 py-1.5 shadow-[3px_3px_0_0_var(--foreground)]">
+        {/* taxi cab silhouette */}
+        <svg width="30" height="20" viewBox="0 0 30 20" className="text-taxi-foreground">
+          <path
+            d="M2 13 L5 7 H10 L12 4 H18 L20 7 H25 L28 13 V16 H26 a2.5 2.5 0 0 1-5 0 H9 a2.5 2.5 0 0 1-5 0 H2 Z"
+            fill="currentColor"
+            stroke="currentColor"
+            strokeWidth="1"
+            strokeLinejoin="round"
+          />
+          <rect x="11" y="7" width="8" height="3" fill="var(--taxi)" />
+        </svg>
+        <span className="font-heading text-xs uppercase tracking-tight text-taxi-foreground">
+          taxi
+        </span>
       </span>
     </StickerBase>
   )
@@ -46,8 +59,18 @@ export function TaxiSticker({ className = '', rotate = -8 }) {
 export function AppleSticker({ className = '', rotate = 7 }) {
   return (
     <StickerBase rotate={rotate} className={className}>
-      <span className="rounded-full border-2 border-foreground bg-pink px-3 py-1 font-heading text-sm uppercase tracking-tight text-pink-foreground shadow-[3px_3px_0_0_var(--foreground)]">
-        Big Apple
+      {/* glossy apple emblem — no text */}
+      <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-foreground bg-pink shadow-[3px_3px_0_0_var(--foreground)]">
+        <svg width="26" height="26" viewBox="0 0 24 24" className="text-pink-foreground">
+          <path
+            d="M12 7c0-2 1.4-3.6 3.4-3.8C15.2 5.1 13.8 6.6 12 7Z"
+            fill="currentColor"
+          />
+          <path
+            d="M16.3 7.3c-1.2 0-2 .7-3 .7s-1.9-.7-3.2-.7C7.6 7.3 6 9.2 6 12c0 3 2.2 6.7 4.1 6.7 1 0 1.3-.6 2.4-.6s1.4.6 2.4.6c1.9 0 3.9-3.6 3.9-6.6 0-2.4-1.4-3.6-2.5-4.4Z"
+            fill="currentColor"
+          />
+        </svg>
       </span>
     </StickerBase>
   )
