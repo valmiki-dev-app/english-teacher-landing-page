@@ -8,13 +8,18 @@ import { FreeLesson } from '@/components/free-lesson'
 import { About } from '@/components/about'
 import { Audience } from '@/components/audience'
 import { Results } from '@/components/results'
+import { Pricing } from '@/components/pricing'
 import { Faq } from '@/components/faq'
 import { FinalCta } from '@/components/final-cta'
 import { Footer } from '@/components/footer'
+import { GraffitiWall } from '@/components/graffiti-wall'
 
 export default function Page() {
   return (
     <main id="top" className="grain relative overflow-x-hidden">
+      {/* fixed background scrawls — appear as you scroll */}
+      <GraffitiWall />
+
       <NavBar />
       <Hero />
 
@@ -53,6 +58,7 @@ export default function Page() {
       </section>
       <Audience />
       <Results />
+      <Pricing />
       <section id="faq">
         <Faq />
       </section>

@@ -13,12 +13,12 @@ export function FinalCta() {
     >
       {/* skyline silhouette at bottom */}
       <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0">
-        <Skyline className="w-full" color="var(--neon-foreground)" opacity={0.08} />
+        <Skyline className="w-full" color="var(--neon-foreground)" opacity={0.08} liberty />
       </div>
 
-      <LibertySticker className="absolute left-6 top-10 z-10 md:left-24" rotate={-8} />
-      <BoltSticker className="absolute right-8 top-16 z-10 md:right-28" rotate={12} />
-      <FlagSticker className="absolute bottom-20 right-6 z-10 hidden md:inline-flex" rotate={-6} />
+      <div className="absolute left-6 top-10 z-10 hidden md:block md:left-24"><LibertySticker rotate={-8} /></div>
+      <div className="absolute right-8 top-16 z-10 hidden md:block md:right-28"><BoltSticker rotate={12} /></div>
+      <div className="absolute bottom-20 right-6 z-10 hidden md:block"><FlagSticker rotate={-6} /></div>
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <Reveal>

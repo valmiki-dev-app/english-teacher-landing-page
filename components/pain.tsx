@@ -5,7 +5,7 @@ import { Reveal } from './reveal'
 const pains = [
   {
     text: 'Смотришь на английский текст — а это будто набор рандомных слов, смысл которых не уловить',
-    color: 'bg-neon text-neon-foreground',
+    color: 'bg-sky text-sky-foreground',
     rotate: -2,
     span: 'md:col-span-7',
   },

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Reveal } from './reveal'
 import { Pin } from './stickers'
-import { NYSticker, HeartNYSticker, FlagSticker } from './stickers'
+import { NYSticker, HeartNYSticker, FlagSticker, PretzelSticker, BrooklynSticker } from './stickers'
 import { Skyline } from './skyline'
 
 const photos = [
@@ -21,10 +21,11 @@ export function About() {
         <Skyline className="absolute bottom-0 w-full" color="var(--pink)" opacity={1} />
       </div>
 
-      {/* NYC stickers scattered */}
-      <NYSticker className="absolute right-6 top-16 z-10 hidden md:inline-flex" rotate={12} />
-      <HeartNYSticker className="absolute left-6 top-20 z-10 hidden md:inline-flex" rotate={-10} />
-      <FlagSticker className="absolute right-8 bottom-24 z-10 hidden md:inline-flex" rotate={8} />
+      {/* NYC stickers scattered — desktop only, use wrapper to prevent Framer Motion display override */}
+      <div className="absolute right-6 top-16 z-10 hidden md:block"><HeartNYSticker rotate={12} /></div>
+      <div className="absolute left-6 top-20 z-10 hidden md:block"><PretzelSticker rotate={-10} /></div>
+      <div className="absolute right-8 bottom-24 z-10 hidden md:block"><BrooklynSticker rotate={8} /></div>
+      <div className="absolute left-8 bottom-24 z-10 hidden md:block"><FlagSticker rotate={-7} /></div>
 
       <div className="mx-auto max-w-6xl">
         <Reveal>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Reveal } from './reveal'
-import { StarSticker, NYSticker } from './stickers'
+import { StarSticker, NYSticker, BrooklynSticker, CoffeeSticker } from './stickers'
 import { Skyline } from './skyline'
 
 const results = [
@@ -22,8 +22,10 @@ export function Results() {
         <Skyline className="absolute bottom-0 w-full" color="var(--foreground)" opacity={1} flip />
       </div>
 
-      <StarSticker className="absolute left-8 top-12 z-10 md:left-24" rotate={-14} />
-      <NYSticker className="absolute right-8 top-12 z-10 md:right-24" rotate={10} />
+      <div className="absolute left-24 top-12 z-10 hidden md:block"><StarSticker rotate={-14} /></div>
+      <div className="absolute right-24 top-12 z-10 hidden md:block"><NYSticker rotate={10} /></div>
+      <div className="absolute left-6 bottom-14 z-10 hidden md:block"><BrooklynSticker rotate={-6} /></div>
+      <div className="absolute right-6 bottom-14 z-10 hidden md:block"><CoffeeSticker rotate={9} /></div>
 
       <div className="mx-auto max-w-5xl">
         <Reveal>

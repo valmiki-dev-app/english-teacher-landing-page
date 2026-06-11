@@ -11,17 +11,18 @@ import {
   LibertySticker,
   HeartNYSticker,
   StarSticker,
+  CoffeeSticker,
 } from './stickers'
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden px-5 pb-0 pt-28 md:px-10 md:pt-32">
-      {/* floating stickers — repositioned to avoid mobile overlap */}
-      <TaxiSticker className="absolute right-4 top-20 z-20 md:right-24 md:top-28" rotate={9} />
-      <NYSticker className="absolute left-4 top-20 z-20 md:left-16 md:top-24" rotate={-12} />
-      <FlagSticker className="absolute right-4 top-[4.5rem] z-20 hidden sm:block md:right-20 md:top-20" rotate={7} />
-      <HeartNYSticker className="absolute left-4 bottom-44 z-20 hidden md:inline-flex" rotate={-8} />
-      <StarSticker className="absolute right-16 top-1/2 z-20 hidden md:inline-flex" rotate={14} />
+      {/* stickers — desktop only, wrapper prevents Framer Motion display override */}
+      <div className="absolute right-24 top-32 z-10 hidden md:block"><TaxiSticker rotate={9} /></div>
+      <div className="absolute left-16 top-28 z-10 hidden md:block"><NYSticker rotate={-12} /></div>
+      <div className="absolute right-24 top-24 z-10 hidden md:block"><FlagSticker rotate={7} /></div>
+      <div className="absolute left-8 bottom-52 z-10 hidden md:block"><HeartNYSticker rotate={-8} /></div>
+      <div className="absolute right-10 bottom-40 z-10 hidden md:block"><CoffeeSticker rotate={14} /></div>
 
       <div className="relative z-10 mx-auto max-w-6xl">
         {/* small badge row */}
@@ -107,17 +108,18 @@ export function Hero() {
         </div>
       </div>
 
-      {/* NYC skyline rising from the bottom of hero */}
+      {/* NYC skyline with Liberty rising from the bottom of hero */}
       <div className="relative mt-12 h-28 sm:h-36 md:h-44">
         <Skyline
           className="absolute bottom-0 left-0 w-full"
           color="var(--foreground)"
-          opacity={0.12}
+          opacity={0.13}
+          liberty
         />
         <Skyline
           className="absolute bottom-0 left-0 w-full"
-          color="var(--neon)"
-          opacity={0.06}
+          color="var(--taxi)"
+          opacity={0.05}
           flip
         />
       </div>

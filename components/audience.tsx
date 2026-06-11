@@ -46,7 +46,7 @@ export function Audience() {
           </Reveal>
 
           <Reveal from="right" delay={0.1} rotate={1.5}>
-            <div className="flex h-full flex-col gap-3 rounded-2xl border-2 border-foreground bg-neon p-6 text-neon-foreground shadow-[5px_5px_0_0_var(--foreground)]">
+            <div className="flex h-full flex-col gap-3 rounded-2xl border-2 border-foreground bg-card p-6 text-card-foreground shadow-[5px_5px_0_0_var(--foreground)]">
               <h3 className="font-heading text-2xl uppercase tracking-tight">
                 Не по пути, если…
               </h3>

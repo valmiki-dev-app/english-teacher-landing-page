@@ -9,11 +9,12 @@ export function WhySection() {
     <section className="relative overflow-hidden border-y-2 border-foreground px-5 py-20 md:px-10 md:py-28">
       {/* skyline silhouette as atmosphere */}
       <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 opacity-[0.06]">
-        <Skyline className="absolute bottom-0 w-full" color="var(--lime)" opacity={1} />
+        <Skyline className="absolute bottom-0 w-full" color="var(--lime)" opacity={1} liberty />
       </div>
 
-      <LibertySticker className="absolute right-6 top-10 z-10 md:right-20 md:top-12" rotate={6} />
-      <SubwaySticker className="absolute left-6 bottom-10 z-10 md:left-20" rotate={-8} />
+      {/* stickers — desktop only */}
+      <div className="absolute right-20 top-12 z-10 hidden md:block"><LibertySticker rotate={6} /></div>
+      <div className="absolute left-20 bottom-8 z-10 hidden md:block"><SubwaySticker rotate={-8} /></div>
 
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_1.2fr] md:items-center">
         <Reveal from="left">

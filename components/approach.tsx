@@ -10,7 +10,7 @@ const steps = [
     icon: Brain,
     title: 'Учимся понимать с нуля',
     text: 'Узнавать слова в тексте и на слух, чтобы каша начала превращаться в смысл.',
-    color: 'bg-neon text-neon-foreground',
+    color: 'bg-sky text-sky-foreground',
   },
   {
     icon: MessageCircle,
@@ -39,8 +39,9 @@ export function Approach() {
       <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 opacity-[0.05]">
         <Skyline className="absolute bottom-0 w-full" color="var(--neon)" opacity={1} />
       </div>
-      <SubwaySticker className="absolute right-6 top-16 z-10 hidden md:inline-flex" rotate={8} />
-      <BoltSticker className="absolute left-8 bottom-20 z-10 hidden md:inline-flex" rotate={-10} />
+      <div className="absolute right-6 top-16 z-10 hidden md:block"><SubwaySticker rotate={8} /></div>
+      <div className="absolute left-8 bottom-20 z-10 hidden md:block"><BoltSticker rotate={-10} /></div>
+
 
       <div className="mx-auto max-w-6xl">
         <Reveal>
