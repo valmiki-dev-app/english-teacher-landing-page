@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Reveal } from './reveal'
 import { Pin } from './stickers'
+import { NYSticker, HeartNYSticker, FlagSticker } from './stickers'
+import { Skyline } from './skyline'
 
 const photos = [
   { src: '/india-1.png', caption: 'Первый раз в Индии', pin: 'neon', rotate: -5, top: 'mt-2' },
@@ -14,13 +16,30 @@ const photos = [
 export function About() {
   return (
     <section className="relative overflow-hidden px-5 py-20 md:px-10 md:py-28">
+      {/* skyline peek */}
+      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 opacity-[0.05]">
+        <Skyline className="absolute bottom-0 w-full" color="var(--pink)" opacity={1} />
+      </div>
+
+      {/* NYC stickers scattered */}
+      <NYSticker className="absolute right-6 top-16 z-10 hidden md:inline-flex" rotate={12} />
+      <HeartNYSticker className="absolute left-6 top-20 z-10 hidden md:inline-flex" rotate={-10} />
+      <FlagSticker className="absolute right-8 bottom-24 z-10 hidden md:inline-flex" rotate={8} />
+
       <div className="mx-auto max-w-6xl">
         <Reveal>
+          {/* "обо мне" — hand-scrawled heading feel */}
           <p className="mb-2 font-hand text-3xl text-taxi">немного про меня</p>
           <h2 className="mb-12 font-heading text-5xl uppercase leading-none tracking-tight md:text-7xl">
             Кто будет
             <br />
-            тебя <span className="text-pink">учить</span>
+            тебя{' '}
+            <span
+              className="marker-hl text-pink"
+              style={{ '--mark': 'var(--pink-c)' } as React.CSSProperties}
+            >
+              учить
+            </span>
           </h2>
         </Reveal>
 
@@ -48,8 +67,16 @@ export function About() {
                 нём просто общались каждый день. И вот там язык наконец начал
                 складываться: я стал понимать речь и сам заговорил.
               </p>
-              <p className="font-hand text-2xl leading-snug text-foreground md:text-3xl">
-                Настоящий английский рождается не в учебнике, а в разговорах.
+              <p
+                className="relative font-hand text-2xl leading-snug text-foreground md:text-3xl"
+              >
+                <span
+                  className="marker-hl"
+                  style={{ '--mark': 'var(--lime-c)' } as React.CSSProperties}
+                >
+                  Настоящий английский рождается не в учебнике,
+                </span>{' '}
+                а в разговорах.
                 Поэтому я учу так, как сам жалею, что меня не учили.
               </p>
             </div>
@@ -57,7 +84,7 @@ export function About() {
 
           {/* India photo board on a string */}
           <div className="relative">
-            <p className="mb-6 text-center font-hand text-2xl text-sky">
+            <p className="mb-6 text-center font-hand text-2xl text-muted-foreground">
               мои фотки из Индии ↓
             </p>
             {/* the string */}

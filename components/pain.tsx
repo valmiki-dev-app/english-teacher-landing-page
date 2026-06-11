@@ -60,13 +60,13 @@ export function Pain() {
           {pains.map((p, i) => (
             <Reveal
               key={i}
-              from={i % 2 === 0 ? 'left' : 'right'}
-              delay={i * 0.05}
-              rotate={p.rotate}
+              from="up"
+              delay={i * 0.04}
+              rotate={0}
               className={p.span}
             >
               <div
-                className={`flex h-full items-start gap-4 rounded-2xl p-6 shadow-[5px_5px_0_0_var(--foreground)] md:p-7 ${p.color}`}
+                className={`flex h-full items-start gap-4 rounded-2xl p-5 shadow-[5px_5px_0_0_var(--foreground)] md:p-7 ${p.color}`}
               >
                 <span className="font-heading text-3xl leading-none opacity-60">
                   {String(i + 1).padStart(2, '0')}

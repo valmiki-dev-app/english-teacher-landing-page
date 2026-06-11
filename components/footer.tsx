@@ -14,7 +14,7 @@ export function Footer() {
           понимать и говорить. с нуля.
         </p>
         <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} · Английский с вайбом Нью-Йорка
+          © {new Date().getFullYear()} · учимся говорить, а не зубрить
         </p>
       </div>
     </footer>

@@ -17,7 +17,7 @@ export function FreeLesson() {
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <div className="relative overflow-hidden rounded-[2rem] border-2 border-foreground bg-neon p-7 text-neon-foreground shadow-[8px_8px_0_0_var(--foreground)] md:p-12">
-            <span className="absolute -right-6 -top-6 font-heading text-[10rem] leading-none text-neon-foreground/10">
+            <span className="absolute -right-4 -top-4 select-none font-heading text-[7rem] leading-none text-neon-foreground/10 md:text-[10rem]">
               FREE
             </span>
 

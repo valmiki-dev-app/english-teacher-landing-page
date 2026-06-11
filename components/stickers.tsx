@@ -37,7 +37,6 @@ export function TaxiSticker({ className = '', rotate = -8 }) {
   return (
     <StickerBase rotate={rotate} className={className}>
       <span className="flex items-center gap-2 rounded-md border-2 border-foreground bg-taxi px-3 py-1.5 shadow-[3px_3px_0_0_var(--foreground)]">
-        {/* taxi cab silhouette */}
         <svg width="30" height="20" viewBox="0 0 30 20" className="text-taxi-foreground">
           <path
             d="M2 13 L5 7 H10 L12 4 H18 L20 7 H25 L28 13 V16 H26 a2.5 2.5 0 0 1-5 0 H9 a2.5 2.5 0 0 1-5 0 H2 Z"
@@ -59,7 +58,6 @@ export function TaxiSticker({ className = '', rotate = -8 }) {
 export function AppleSticker({ className = '', rotate = 7 }) {
   return (
     <StickerBase rotate={rotate} className={className}>
-      {/* glossy apple emblem — no text */}
       <span className="grid h-12 w-12 place-items-center rounded-full border-2 border-foreground bg-pink shadow-[3px_3px_0_0_var(--foreground)]">
         <svg width="26" height="26" viewBox="0 0 24 24" className="text-pink-foreground">
           <path
@@ -123,6 +121,100 @@ export function StarSticker({ className = '', rotate = -12 }) {
           strokeLinejoin="round"
         />
       </svg>
+    </StickerBase>
+  )
+}
+
+/** NY graffiti tag sticker */
+export function NYSticker({ className = '', rotate = -6 }) {
+  return (
+    <StickerBase rotate={rotate} className={className}>
+      <span className="flex items-center justify-center rounded-lg border-2 border-foreground bg-neon px-3 py-1.5 shadow-[3px_3px_0_0_var(--foreground)]">
+        <span className="font-heading text-2xl font-black uppercase tracking-tighter text-neon-foreground" style={{ fontStyle: 'italic' }}>
+          NY
+        </span>
+      </span>
+    </StickerBase>
+  )
+}
+
+/** Statue of Liberty silhouette sticker */
+export function LibertySticker({ className = '', rotate = 4 }) {
+  return (
+    <StickerBase rotate={rotate} className={className}>
+      <span className="flex h-14 w-11 items-center justify-center rounded-md border-2 border-foreground bg-lime shadow-[3px_3px_0_0_var(--foreground)]">
+        <svg width="28" height="48" viewBox="0 0 28 48" fill="none">
+          {/* torch arm */}
+          <path d="M19 6 L21 0 L23 2 L22 6" fill="var(--lime-foreground)" />
+          {/* flame */}
+          <path d="M21 0 Q23 -2 24 1 Q22 3 21 2Z" fill="var(--taxi)" />
+          {/* crown */}
+          <path d="M10 14 L11 10 L13 13 L14 9 L15 13 L17 10 L18 14 Z" fill="var(--lime-foreground)" />
+          {/* head */}
+          <ellipse cx="14" cy="17" rx="5" ry="4" fill="var(--lime-foreground)" />
+          {/* robe body */}
+          <path d="M9 21 L7 38 H21 L19 21 Z" fill="var(--lime-foreground)" />
+          {/* tablet */}
+          <rect x="3" y="22" width="7" height="9" rx="1" fill="var(--lime-foreground)" />
+          {/* base */}
+          <rect x="6" y="38" width="16" height="4" rx="1" fill="var(--lime-foreground)" />
+          <rect x="4" y="42" width="20" height="3" rx="1" fill="var(--lime-foreground)" />
+          {/* robe folds */}
+          <line x1="11" y1="22" x2="10" y2="38" stroke="var(--lime)" strokeWidth="1" />
+          <line x1="14" y1="21" x2="14" y2="38" stroke="var(--lime)" strokeWidth="1" />
+          <line x1="17" y1="22" x2="18" y2="38" stroke="var(--lime)" strokeWidth="1" />
+        </svg>
+      </span>
+    </StickerBase>
+  )
+}
+
+/** American flag sticker */
+export function FlagSticker({ className = '', rotate = 6 }) {
+  return (
+    <StickerBase rotate={rotate} className={className}>
+      <span className="overflow-hidden rounded-md border-2 border-foreground shadow-[3px_3px_0_0_var(--foreground)]" style={{ width: 52, height: 34 }}>
+        <svg width="52" height="34" viewBox="0 0 52 34">
+          {/* stripes */}
+          {Array.from({ length: 13 }).map((_, i) => (
+            <rect
+              key={i}
+              x="0"
+              y={i * (34 / 13)}
+              width="52"
+              height={34 / 13 + 0.5}
+              fill={i % 2 === 0 ? '#B22234' : '#FFFFFF'}
+            />
+          ))}
+          {/* blue canton */}
+          <rect x="0" y="0" width="22" height="18" fill="#3C3B6E" />
+          {/* stars (simplified dots) */}
+          {[
+            [2,2],[6,2],[10,2],[14,2],[18,2],
+            [4,5],[8,5],[12,5],[16,5],[20,5],
+            [2,8],[6,8],[10,8],[14,8],[18,8],
+            [4,11],[8,11],[12,11],[16,11],[20,11],
+            [2,14],[6,14],[10,14],[14,14],[18,14],
+          ].map(([cx, cy], i) => (
+            <circle key={i} cx={cx} cy={cy} r="1" fill="white" />
+          ))}
+        </svg>
+      </span>
+    </StickerBase>
+  )
+}
+
+/** "I ♥ NY" style heart sticker */
+export function HeartNYSticker({ className = '', rotate = -8 }) {
+  return (
+    <StickerBase rotate={rotate} className={className}>
+      <span className="flex items-center gap-1 rounded-md border-2 border-foreground bg-foreground px-2.5 py-1.5 shadow-[3px_3px_0_0_var(--neon)]">
+        <span className="font-heading text-sm font-black uppercase text-background">I</span>
+        <svg width="14" height="13" viewBox="0 0 14 13" fill="var(--neon)">
+          <path d="M7 12 C7 12 1 8 1 4 C1 2 2.5 1 4 1 C5.5 1 7 2.5 7 2.5 C7 2.5 8.5 1 10 1 C11.5 1 13 2 13 4 C13 8 7 12 7 12Z"/>
+        </svg>
+        <span className="font-heading text-sm font-black uppercase text-background">NY</span>
+      </span>
     </StickerBase>
   )
 }

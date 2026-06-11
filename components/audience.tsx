@@ -30,7 +30,7 @@ export function Audience() {
 
         <div className="grid gap-5 md:grid-cols-[1.4fr_1fr]">
           <Reveal from="left">
-            <ul className="grid gap-3 sm:grid-cols-2">
+            <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2">
               {forYou.map((t, i) => (
                 <li
                   key={i}

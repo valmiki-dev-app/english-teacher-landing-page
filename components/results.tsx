@@ -1,7 +1,8 @@
 'use client'
 
 import { Reveal } from './reveal'
-import { StarSticker } from './stickers'
+import { StarSticker, NYSticker } from './stickers'
+import { Skyline } from './skyline'
 
 const results = [
   'начинаешь понимать слова в речи и тексте, а не слышать кашу',
@@ -11,16 +12,30 @@ const results = [
 ]
 
 const colors = ['text-neon', 'text-taxi', 'text-pink', 'text-lime']
+const marks: (string | null)[] = ['var(--neon)', 'var(--taxi)', null, null]
 
 export function Results() {
   return (
     <section className="relative overflow-hidden border-y-2 border-foreground bg-card px-5 py-20 md:px-10 md:py-28">
-      <StarSticker className="absolute left-8 top-12 md:left-24" rotate={-14} />
+      {/* skyline pair — mirrored */}
+      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 opacity-[0.06]">
+        <Skyline className="absolute bottom-0 w-full" color="var(--foreground)" opacity={1} flip />
+      </div>
+
+      <StarSticker className="absolute left-8 top-12 z-10 md:left-24" rotate={-14} />
+      <NYSticker className="absolute right-8 top-12 z-10 md:right-24" rotate={10} />
+
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <p className="mb-2 font-hand text-3xl text-taxi">точка Б</p>
           <h2 className="mb-4 font-heading text-5xl uppercase leading-none tracking-tight md:text-7xl">
-            К чему придём
+            К чему{' '}
+            <span
+              className="marker-hl"
+              style={{ '--mark': 'var(--lime-c)' } as React.CSSProperties}
+            >
+              придём
+            </span>
           </h2>
           <p className="mb-12 max-w-2xl text-lg text-muted-foreground md:text-xl">
             Не к идеальному английскому за месяц. А к первым живым шагам, после
@@ -36,7 +51,14 @@ export function Results() {
                   →
                 </span>
                 <p className="text-pretty text-xl font-medium leading-snug transition-transform group-hover:translate-x-2 md:text-3xl">
-                  {r}
+                  {marks[i] ? (
+                    <span
+                      className="marker-hl"
+                      style={{ '--mark': marks[i]! } as React.CSSProperties}
+                    >
+                      {r}
+                    </span>
+                  ) : r}
                 </p>
               </div>
             </Reveal>

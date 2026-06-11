@@ -40,10 +40,10 @@ export default function Page() {
         <Marquee
           reverse
           items={[
-            'new york state of mind',
             'каша → смысл',
             'поток звуков → слова',
             'стена → дверь',
+            '★ ★ ★',
           ]}
         />
       </div>

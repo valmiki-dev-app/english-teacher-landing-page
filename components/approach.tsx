@@ -2,6 +2,8 @@
 
 import { Brain, MessageCircle, Puzzle, Heart } from 'lucide-react'
 import { Reveal } from './reveal'
+import { Skyline } from './skyline'
+import { SubwaySticker, BoltSticker } from './stickers'
 
 const steps = [
   {
@@ -32,16 +34,29 @@ const steps = [
 
 export function Approach() {
   return (
-    <section className="px-5 py-20 md:px-10 md:py-28">
+    <section className="relative overflow-hidden px-5 py-20 md:px-10 md:py-28">
+      {/* NYC atmosphere */}
+      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 opacity-[0.05]">
+        <Skyline className="absolute bottom-0 w-full" color="var(--neon)" opacity={1} />
+      </div>
+      <SubwaySticker className="absolute right-6 top-16 z-10 hidden md:inline-flex" rotate={8} />
+      <BoltSticker className="absolute left-8 bottom-20 z-10 hidden md:inline-flex" rotate={-10} />
+
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <p className="mb-2 font-hand text-3xl text-taxi">как мы это сделаем</p>
           <h2 className="mb-12 font-heading text-5xl uppercase leading-none tracking-tight md:text-7xl">
-            Как мы это <span className="text-neon">исправим</span>
+            Как мы это{' '}
+            <span
+              className="marker-hl text-neon"
+              style={{ '--mark': 'var(--neon)' } as React.CSSProperties}
+            >
+              исправим
+            </span>
           </h2>
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           {steps.map((s, i) => {
             const Icon = s.icon
             return (

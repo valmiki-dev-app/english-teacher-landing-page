@@ -16,7 +16,7 @@ export function NavBar() {
           <span className="grid h-9 w-9 place-items-center rounded-full border-2 border-foreground bg-taxi font-heading text-lg text-taxi-foreground">
             EN
           </span>
-          <span className="whitespace-nowrap font-marker text-lg tracking-tight md:text-xl">
+          <span className="whitespace-nowrap font-marker text-base tracking-tight md:text-xl">
             понятный английский
           </span>
         </a>
